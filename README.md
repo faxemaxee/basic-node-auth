@@ -89,6 +89,7 @@ requires:
   * `token` in body
 * `password` user password
 
+---
 
 ## Tests
 
