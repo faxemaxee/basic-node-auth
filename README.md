@@ -49,7 +49,7 @@ login a user
 
 requires:
 * `username` **OR** `email`
-* password`
+* `password`
 
 ---
 
