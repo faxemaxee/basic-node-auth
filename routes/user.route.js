@@ -100,7 +100,7 @@ exports.create = function (req, res) {
 		var templateDir = path.join(__dirname, '../tpls', 'confirm');
 
 		var sendConfirmation = transporter.templateSender(new emailTemplate(templateDir), {
-			from: '"WoTick Service" <mail@in2web-design.de>'
+			from: '"BasicAuth Service" <mail@in2web-design.de>'
 		});
 		sendConfirmation({
 			to: tempUser.email,
