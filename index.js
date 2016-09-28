@@ -19,7 +19,7 @@ router.use(function (req, res, next) {
 		(req.path.indexOf('/verify') !== -1) ||
 		req.path === '/') return next();
 
-	var token = req.body.token || req.query.token || req.headers['x-access-token'] || req.headers['Authorization'];
+	var token = req.body.token || req.headers['x-access-token'] || req.headers['Authorization'];
 
 	if (token) {
 

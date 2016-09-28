@@ -2,13 +2,13 @@
 
 ## basic-node-auth
 
-This is a 100% basic boilerplate to get an authentivation server running quick.
+This is a 100% basic boilerplate to get an authentication server running quick.
 
 **Feautures**
 
 * json webtoken authentication
 * proper password hashing using bcrypt
-* E-Mail Confirmation
+* E-Mail Confirmation (basic mail template thanks to [beefree.io](https://beefree.io))
 * **C**reate, **R**ead, **U**pdate and **D**elete users
 * proper userUUID's using uuid
 
@@ -26,7 +26,64 @@ Provide code examples and explanations of how to get the project.
 
 ## API Reference
 
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+### test api
+####`/api/` (GET)
+use this command to test if the server is up and running properly
+
+
+### register user
+####`/api/register` (POST)
+register a user
+
+requires:
+* `username`
+* `email`
+* `password
+
+
+### login
+####`/api/login` (POST)
+login a user
+
+requires:
+* `username` **OR** `email`
+* password`
+
+
+### update user info
+####`/api/user` (PUT)
+update user data **NOT** password, to update password see `/api/user/password`
+
+requires:
+* token send as (choose one):
+  * `x-access-token` in header
+  * `Authorization` in header
+  * `token` in body
+* whatever info you want to change
+
+
+### update user password
+####`/api/user` (PUT)
+
+requires:
+* token send as (choose one):
+  * `x-access-token` in header
+  * `Authorization` in header
+  * `token` in body
+* `oldPassword` the old password
+* `newPassword` the new password
+
+
+### delete user
+####`/api/user` (DELETE)
+
+requires:
+* token send as (choose one):
+  * `x-access-token` in header
+  * `Authorization` in header
+  * `token` in body
+* `password` user password
+
 
 ## Tests
 
