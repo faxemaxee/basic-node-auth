@@ -96,7 +96,7 @@ exports.create = function (req, res) {
 			return;
 		}
 
-		var link = "http://" + req.get('host') + "/api/verify?code=" + tempUser.confirmationCode + "&email=" + tempUser.email;
+		var link = "http://" + req.get('host') + "/api/verify/" + tempUser.username + "/" + tempUser.confirmationCode;
 		var templateDir = path.join(__dirname, '../tpls', 'confirm');
 
 		var sendConfirmation = transporter.templateSender(new emailTemplate(templateDir), {
@@ -104,7 +104,7 @@ exports.create = function (req, res) {
 		});
 		sendConfirmation({
 			to: tempUser.email,
-			subject: "Welcome to WoTick - Complete your registration."
+			subject: "Welcome to BasicAuth - Complete your registration."
 		}, {
 			username: tempUser.username,
 			link: link
@@ -125,48 +125,48 @@ exports.create = function (req, res) {
 	})
 };
 exports.verify = function (req, res) {
-	if (!req.query.email || !req.query.code) {
-		res.status(400).json({
-			error: true,
-			msg: 'Mssing Data'
-		})
+	var staticDir = path.join(__dirname, '../tpls', 'static');
+
+	if (!req.params.username || !req.params.code) {
+		res
+			.status(400)
+			.sendFile(staticDir + '/error.html');
 	}
 
-	getUserBy({email: req.query.email})
+	getUserBy({username: req.params.username})
 		.then(
 			function (resp) {
 				var user = resp.data;
-				if (user.confirmationCode != req.query.code) {
-					res.status(400).json({
-						error: true,
-						msg: 'Invalid Confirmation Id'
-					});
-					return;
-				} else {
-					user.confirmationCode = "";
-					user.confirmed = true;
-				}
-
-				user.save(function (err) {
-					if (err) {
-						res.status(500).json({
-							error: true,
-							msg: 'Internal Server Error'
-						});
+				if (!user.confirmed) {
+					if (user.confirmationCode != req.params.code) {
+						res
+							.status(400)
+							.sendFile(staticDir + '/error.html');
 						return;
+					} else {
+						user.confirmationCode = "";
+						user.confirmed = true;
 					}
-					res.status(200).json({
-						error: false,
-						msg: 'User Successfully Confirmed'
-					})
-				});
 
+					user.save(function (err) {
+						if (err) {
+							res
+								.status(500)
+								.sendFile(staticDir + '/error.html');
+							return;
+						}
+
+					});
+				}
+				res
+					.status(200)
+					.sendFile(staticDir + '/confirmed.html');
 			},
 			function (error) {
 				console.error(error);
 				res
 					.status(error.status)
-					.json(error);
+					.sendFile(staticDir + '/error.html');
 			}
 		);
 };

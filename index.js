@@ -16,7 +16,7 @@ app.use('/api', router);
 router.use(function (req, res, next) {
 	if (req.path === '/login' ||
 		req.path === '/register' ||
-		req.path === '/verify' ||
+		(req.path.indexOf('/verify') !== -1) ||
 		req.path === '/') return next();
 
 	var token = req.body.token || req.query.token || req.headers['x-access-token'] || req.headers['Authorization'];
@@ -65,7 +65,7 @@ router.route('/users/').get(userRoute.getAll);
 
 router.route('/register')
 	.post(userRoute.create);
-router.route('/verify')
+router.route('/verify/:username/:code')
 	.get(userRoute.verify);
 router.route('/login')
 	.post(userRoute.login);
