@@ -39,7 +39,7 @@ register a user
 requires:
 * `username`
 * `email`
-* `password
+* `password`
 
 ---
 
