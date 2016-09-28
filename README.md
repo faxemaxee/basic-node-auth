@@ -30,6 +30,7 @@ Provide code examples and explanations of how to get the project.
 ####`/api/` (GET)
 use this command to test if the server is up and running properly
 
+---
 
 ### register user
 ####`/api/register` (POST)
@@ -40,6 +41,7 @@ requires:
 * `email`
 * `password
 
+---
 
 ### login
 ####`/api/login` (POST)
@@ -49,6 +51,7 @@ requires:
 * `username` **OR** `email`
 * password`
 
+---
 
 ### update user info
 ####`/api/user` (PUT)
@@ -61,6 +64,7 @@ requires:
   * `token` in body
 * whatever info you want to change
 
+---
 
 ### update user password
 ####`/api/user` (PUT)
@@ -73,6 +77,7 @@ requires:
 * `oldPassword` the old password
 * `newPassword` the new password
 
+---
 
 ### delete user
 ####`/api/user` (DELETE)
