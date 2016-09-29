@@ -2,7 +2,7 @@
 
 ## basic-node-auth
 
-This is a 100% basic boilerplate to get an authentication server running quick.
+This is a 100% basic boilerplate to get an authentication server running.
 
 **Feautures**
 
@@ -12,17 +12,55 @@ This is a 100% basic boilerplate to get an authentication server running quick.
 * **C**reate, **R**ead, **U**pdate and **D**elete users
 * proper userUUID's using uuid
 
-## Code Example
+## setup
+#####clone 
+```
+git clone https://github.com/faxemaxe/basic-node-auth.git
+```
+#####install
+```
+npm install
+```
+#####configure in config.js (ingore the try-catch, dev purposes)
+```
+config = {
+		//secret which is used to hash json-web-token
+		'secret': 'supersecret-json-web',
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+		//mongoDB Connection
+		'database': 'mongodb://USERNAME:PASSWORD@DATABASE',
+		
+		'mailConfig': {
 
-## Motivation
+			//SMTP Host
+			host: 'SMTP-HOST',
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+			//SSL Port
+			port: 465,
 
-## Installation
+			//use SSL (recommended)
+			secure: true,
+			
+			//mail credentials
+			auth: {
+				user: 'SMTP-USER',
+				pass: 'SMTP-PASSWORD'
+			}
+		}
+	}
+```
+#####run
+```
+node server
+```
+#####tip
+I prefer using `nodemon` as a wrapper for standard node server, it watches your files and restarts the server automatically. It is included as a devDependency in the package.json but may require a global installation.
 
-Provide code examples and explanations of how to get the project.
+## why is this here?
+
+Too often I just needed a small user-crud, maybe featuring a token-based authentication to get a project up and running or just use it as  base for something else. There you go, just clone, install, config and run...
+
+
 
 ## API Reference
 
