@@ -4,16 +4,27 @@ try {
 	config = require('./private.config');
 } catch(e) {
 	config = {
+		//secret which is used to hash json-web-token
+		'secret': 'supersecret-json-web',
 
-		'secret': 'supersecret-json-web',						//secret which is used to hash json-web-token
-		'database': 'mongodb://USERNAME:PASSWORD@DATABASE',		//mongoDB Connection
+		//mongoDB Connection
+		'database': 'mongodb://USERNAME:PASSWORD@DATABASE',
+
 		'mailConfig': {
-			host: 'SMTP-HOST',									//SMTP Host
-			port: 465,											//SSL Port
-			secure: true, 										//use SSL (recommended)
+
+			//SMTP Host
+			host: 'SMTP-HOST',
+
+			//SSL Port
+			port: 465,
+
+			//use SSL (recommended)
+			secure: true,
+
+			//mail credentials
 			auth: {
-				user: 'SMTP-USER',								//Mailusername (yourmail@example.com)
-				pass: 'SMTP-PASSWORD'							//Mailpassword
+				user: 'SMTP-USER',
+				pass: 'SMTP-PASSWORD'
 			}
 		}
 	}
