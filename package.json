@@ -1,6 +1,6 @@
 {
   "name": "basic-node-auth",
-  "version": "1.0.1",
+  "version": "0.0.1",
   "description": "a rudimental node-express-jwt authentication service",
   "main": "index.js",
   "scripts": {
@@ -27,13 +27,5 @@
   },
   "devDependencies": {
     "nodemon": "^1.10.2"
-  },
-  "files": [
-    "models",
-    "routes",
-    "tpls",
-    "config.js",
-    "index.js",
-    "README.md"
-  ]
+  }
 }
