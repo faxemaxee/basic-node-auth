@@ -1,4 +1,4 @@
-#NOT FINAL
+# NOT FINAL
 
 ## basic-node-auth
 
@@ -13,15 +13,15 @@ This is a 100% basic boilerplate to get an authentication server running.
 * proper userUUID's using uuid
 
 ## setup
-#####clone 
+##### clone 
 ```
 git clone https://github.com/faxemaxe/basic-node-auth.git
 ```
-#####install
+##### install
 ```
 npm install
 ```
-#####configure in config.js (ingore the try-catch, dev purposes)
+##### configure in config.js (ingore the try-catch, dev purposes)
 ```
 config = {
 		//secret which is used to hash json-web-token
@@ -49,11 +49,11 @@ config = {
 		}
 	}
 ```
-#####run
+##### run
 ```
 node server
 ```
-#####tip
+##### tip
 I prefer using `nodemon` as a wrapper for standard node server, it watches your files and restarts the server automatically. It is included as a devDependency in the package.json but may require a global installation.
 
 ## why is this here?
@@ -65,13 +65,13 @@ Too often I just needed a small user-crud, maybe featuring a token-based authent
 ## API Reference
 
 ### test api
-####`/api/` (GET)
+#### `/api/` (GET)
 use this command to test if the server is up and running properly
 
 ---
 
 ### register user
-####`/api/register` (POST)
+#### `/api/register` (POST)
 register a user
 
 requires:
@@ -82,7 +82,7 @@ requires:
 ---
 
 ### login
-####`/api/login` (POST)
+#### `/api/login` (POST)
 login a user
 
 requires:
@@ -92,7 +92,7 @@ requires:
 ---
 
 ### update user info
-####`/api/user` (PUT)
+#### `/api/user` (PUT)
 update user data **NOT** password, to update password see `/api/user/password`
 
 requires:
@@ -105,7 +105,7 @@ requires:
 ---
 
 ### update user password
-####`/api/user` (PUT)
+#### `/api/user` (PUT)
 
 requires:
 * token send as (choose one):
@@ -118,7 +118,7 @@ requires:
 ---
 
 ### delete user
-####`/api/user` (DELETE)
+#### `/api/user` (DELETE)
 
 requires:
 * token send as (choose one):
