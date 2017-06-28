@@ -21,33 +21,34 @@ git clone https://github.com/faxemaxe/basic-node-auth.git
 ```
 npm install
 ```
-##### configure in config.js (ingore the try-catch, dev purposes)
+##### configure in config.js
 ```
-config = {
-		//secret which is used to hash json-web-token
-		'secret': 'supersecret-json-web',
+var config = {
+  //secret which is used to hash json-web-token
+  'secret': 'supersecret-json-web',
 
-		//mongoDB Connection
-		'database': 'mongodb://USERNAME:PASSWORD@DATABASE',
-		
-		'mailConfig': {
+  //mongoDB Connection
+  'database': 'mongodb://localhost/basic-node-auth',
 
-			//SMTP Host
-			host: 'SMTP-HOST',
+  'mailConfig': {
 
-			//SSL Port
-			port: 465,
+    //SMTP Host
+    host: 'hoozt.de',
 
-			//use SSL (recommended)
-			secure: true,
-			
-			//mail credentials
-			auth: {
-				user: 'SMTP-USER',
-				pass: 'SMTP-PASSWORD'
-			}
-		}
-	}
+    //SSL Port
+    port: 465,
+
+    //use SSL (recommended)
+    secure: true,
+
+    //mail credentials
+    auth: {
+      user: 'trash@honestweb.io',
+      pass: '2@35Fryb'
+    }
+  }
+};
+module.exports = config;
 ```
 ##### run
 ```
