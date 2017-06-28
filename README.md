@@ -33,7 +33,7 @@ var config = {
   'mailConfig': {
 
     //SMTP Host
-    host: 'hoozt.de',
+    host: 'host.de',
 
     //SSL Port
     port: 465,
@@ -43,8 +43,8 @@ var config = {
 
     //mail credentials
     auth: {
-      user: 'trash@honestweb.io',
-      pass: '2@35Fryb'
+      user: 'john@doe.de',
+      pass: 'supersecure'
     }
   }
 };
