@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const config = require('./config');
 
+mongoose.Promise = global.Promise;
 mongoose.connect(config.database);
 
 const router = express.Router();
