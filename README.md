@@ -106,7 +106,7 @@ requires:
 ---
 
 ### update user password
-#### `/api/user` (PUT)
+#### `/api/user/password` (PUT)
 
 requires:
 * token send as (choose one):
